@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="fa" translate="no" dir="rtl">
 <head>
@@ -39,12 +39,18 @@
 <link href="https://hidigimenu.com/Menu/assets/bundle/css/bundle.min.css" rel="stylesheet"  />
 <link href="https://hidigimenu.com/Menu/assets/css/style-red.min.css?v=ADUdVDc0XXzikdwVuoJ7s5tT0YhtxnYpgM80jfx5rKY" rel="stylesheet" id="styleId" />
 
-
-
-    
+<link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+<script src="{% static 'js/js.min.js' %}"></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Roboto', sans-serif; /* استفاده از فونت Roboto */
+    }
+</style>
 </head>
 <body class="ui-rounded rtl  ">
-
+    
     <!-- Fixed navbar -->
 <header class="header  fixed-top">
     <nav class="navbar">
@@ -144,49 +150,15 @@
                 <!-- Swiper -->
                 <div class="swiper-container swiper-categories text-center swiper-container-horizontal">
                     <div class="swiper-wrapper" id="button-nav">
+                        {% for category in categories %}
                             <div class="swiper-slide w-auto p-1 text-center">
                                 <a class="icons icon-60 shadow-sm bg-groupFood"
                                    href="javascript:void(0)" id="nav4421" onclick="btnGoGroup(4421)">
-                                    <img src="https://hidigimenu.com/defaultImage/defaultMenuGroupImage/05-GasSet2-hamburguer.svg" class="avatar-40">
+                                    <img src="{{category.icon.url}}" class="avatar-40">
                                 </a>
-                                <p class="small mt-1 backText menuGroupName" style="height:37px;">&#x628;&#x631;&#x6AF;&#x631; &#x648; &#x633;&#x627;&#x646;&#x62F;&#x648;&#x6CC;&#x686;</p>
+                                <p class="small mt-1 backText menuGroupName" style="height:37px;">{{ category }}</p>
                             </div>
-                            <div class="swiper-slide w-auto p-1 text-center">
-                                <a class="icons icon-60 shadow-sm bg-groupFood"
-                                   href="javascript:void(0)" id="nav4422" onclick="btnGoGroup(4422)">
-                                    <img src="https://hidigimenu.com/defaultImage/defaultMenuGroupImage/05-GasSet2-pizza.svg" class="avatar-40">
-                                </a>
-                                <p class="small mt-1 backText menuGroupName" style="height:37px;">&#x67E;&#x6CC;&#x62A;&#x632;&#x627;</p>
-                            </div>
-                            <div class="swiper-slide w-auto p-1 text-center">
-                                <a class="icons icon-60 shadow-sm bg-groupFood"
-                                   href="javascript:void(0)" id="nav4423" onclick="btnGoGroup(4423)">
-                                    <img src="https://hidigimenu.com/defaultImage/defaultMenuGroupImage/05-GasSet2-pasta-1.svg" class="avatar-40">
-                                </a>
-                                <p class="small mt-1 backText menuGroupName" style="height:37px;">&#x67E;&#x627;&#x633;&#x62A;&#x627;</p>
-                            </div>
-                            <div class="swiper-slide w-auto p-1 text-center">
-                                <a class="icons icon-60 shadow-sm bg-groupFood"
-                                   href="javascript:void(0)" id="nav4424" onclick="btnGoGroup(4424)">
-                                    <img src="https://hidigimenu.com/defaultImage/defaultMenuGroupImage/05-GasSet2-salad.svg" class="avatar-40">
-                                </a>
-                                <p class="small mt-1 backText menuGroupName" style="height:37px;">&#x633;&#x627;&#x644;&#x627;&#x62F;</p>
-                            </div>
-                            <div class="swiper-slide w-auto p-1 text-center">
-                                <a class="icons icon-60 shadow-sm bg-groupFood"
-                                   href="javascript:void(0)" id="nav4425" onclick="btnGoGroup(4425)">
-                                    <img src="https://hidigimenu.com/defaultImage/defaultMenuGroupImage/05-GasSet2-fries.svg" class="avatar-40">
-                                </a>
-                                <p class="small mt-1 backText menuGroupName" style="height:37px;">&#x67E;&#x6CC;&#x634; &#x63A;&#x630;&#x627;</p>
-                            </div>
-                            <div class="swiper-slide w-auto p-1 text-center">
-                                <a class="icons icon-60 shadow-sm bg-groupFood"
-                                   href="javascript:void(0)" id="nav4426" onclick="btnGoGroup(4426)">
-                                    <img src="https://hidigimenu.com/defaultImage/defaultMenuGroupImage/05-GasSet2-can.svg" class="avatar-40">
-                                </a>
-                                <p class="small mt-1 backText menuGroupName" style="height:37px;">&#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;</p>
-                            </div>
-
+                        {% endfor %}
                     </div>
                     <div class="swiper-pagination mb-3"></div>
                     <button class="btn btn-link mt-0 py-1 w-100 bar-more collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collpasemorelink" aria-expanded="false" aria-controls="collpasemorelink">
@@ -210,1135 +182,91 @@
                     <a class="badge" href="https://hidigimenu.com/Menu/ViewMenuItems?menuId=4115&amp;collectionCode=demo&amp;goToPdf=true&amp;sort=MostExpensive">گران‌ترین</a>
                 </div>
 
-                    <div class="mb-4 gidindex">
+                {% for category in categories %}
+                <div class="mb-4 gidindex">
 
-                        <!-- Gradient divider -->
-                        <hr data-content="&#x628;&#x631;&#x6AF;&#x631; &#x648; &#x633;&#x627;&#x646;&#x62F;&#x648;&#x6CC;&#x686;"
-                            id="gr4421"
-                            class="hr-text bg-default solid mt-5 mb-5" />
-                    </div>
-                    <div class="row">
-                                        <div class="col-12 col-lg-6">
-                                            <a href="javascript:void (0)" onclick="handleViewItem(9714)">
-                                                <div class="card mb-3 position-relative overflow-hidden text-white best-plan pricing-rates" id="cardItem-9714">
-                                                    <div class="lazy background" data-src="dbd987b30cc2439c89129bb682b5ed23.jpg" id="img-9714">
-                                                        <img class="lazy d-none" src="https://hidigimenu.com/defaultImage/noImage/noimage2.png" alt="&#x647;&#x645;&#x628;&#x631;&#x6AF;&#x631; &#x645;&#x62E;&#x635;&#x648;&#x635;" />
-                                                    </div>
+                    <!-- Gradient divider -->
+                    <hr data-content="{{category}}"
+                        id="gr4421"
+                        class="hr-text bg-default solid mt-5 mb-5" />
 
-                                                    <div class="card-header border-0 bg-none">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="icons icon-40 text-white mr-2">
-                                                                <i class="fas fa-thumbs-up"></i>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h6 class="text-white my-0">&#x647;&#x645;&#x628;&#x631;&#x6AF;&#x631; &#x645;&#x62E;&#x635;&#x648;&#x635;</h6>
-                                                                    <small class="text-white" name="ratingStars" myid="9714" id="ratingStars-9714" style="opacity: 1">5</small>
-                                                                    <small class="text-white">/5</small>
-                                                                    <small class="text-white fas fa-stars" style="opacity: 1"></small>
-                                                                    <small class="text-white" name="countOfLike" myid="9714" id="countOfLike-9714" style="opacity: 1"></small>
-                                                                    <small class="text-white fas fa-heart" itemid="9714" style="cursor: pointer"></small>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body text-center z-1 h-100px">
-                                                            <div class="lable text-center bg-default pt-2 pb-2">
-
-                                                            </div>
-                                                    </div>
-                                                    <div class="card-footer border-0 z-1" id="cardImageFooter-9714">
-                                                        <div class="row ">
-                                                                    <div class="col-auto">
-                                                                        <span class="float-right text-white font-weight-bold" style="font-size: 25px">
-125                                                                                <small class="text-center text-white float-left" style="font-size: 8px; margin-top: 2px; padding-right: 5px">
-                                                                                    هزار
-                                                                                    <br>
-                                                                                    تومان
-                                                                                </small>
-                                                                        </span>
-                                                                    </div>
-
-                                                                    <div class="col text-right pr-0 addToCard" style="padding-left:15px !important" id="notFinish-9714">
-
-                                                                        <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9714" onclick="handleAddToCard(9714,-1,'menuItems',this)">
-                                                                            <i class="far fa-minus-circle fa-2x"></i>
-                                                                        </button>
-                                                                        <label class="d-none h6 mr-1 ml-1" id="lblCountBasket-9714">0</label>
-                                                                        <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9714" onclick="handleAddToCard(9714,1,'menuItems',this)">
-                                                                            <i class="fas fa-plus-circle fa-2x" id="btnPlusIcon-9714"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="col text-right pr-0 d-none addToCard" style="padding-left:15px !important" id="finish-9714">
-                                                                        <button class="btn btn-sm btn-secondary">
-                                                                            تمام شد
-                                                                        </button>
-                                                                    </div>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                </div>
-                                            </a>
+                        <div class="row">
+                            {% for item in items %}
+                            {% if item.category == category %}
+                            <div class="col-12 col-lg-6">
+                                <a href="javascript:void (0)" onclick="handleViewItem(9722)" >
+                                    <div class="card mb-3 position-relative overflow-hidden text-white best-plan pricing-rates" id="cardItem-9722">
+                                        <div class="lazy background" data-src="{{item.image.url}}" id="img-9722">
+                                            <img class="lazy d-none" src="{{item.image.url}}" alt="&#x67E;&#x6CC;&#x62A;&#x632;&#x627; &#x631;&#x633;&#x62A; &#x628;&#x6CC;&#x641;" />
                                         </div>
 
-                    </div>
-                    <div class="mb-4 gidindex">
-
-                        <!-- Gradient divider -->
-                        <hr data-content="&#x67E;&#x6CC;&#x62A;&#x632;&#x627;"
-                            id="gr4422"
-                            class="hr-text bg-default solid mt-5 mb-5" />
-                    </div>
-                    <div class="row">
-                                        <div class="col-12 col-lg-6">
-                                            <a href="javascript:void (0)" onclick="handleViewItem(9722)">
-                                                <div class="card mb-3 position-relative overflow-hidden text-white best-plan pricing-rates" id="cardItem-9722">
-                                                    <div class="lazy background" data-src="006a7a7d6f2e4f4d9bd694725d6b2943.jpg" id="img-9722">
-                                                        <img class="lazy d-none" src="https://hidigimenu.com/defaultImage/noImage/noimage2.png" alt="&#x67E;&#x6CC;&#x62A;&#x632;&#x627; &#x631;&#x633;&#x62A; &#x628;&#x6CC;&#x641;" />
-                                                    </div>
-
-                                                    <div class="card-header border-0 bg-none">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="icons icon-40 text-white mr-2">
-                                                                <i class="fas fa-thumbs-up"></i>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h6 class="text-white my-0">&#x67E;&#x6CC;&#x62A;&#x632;&#x627; &#x631;&#x633;&#x62A; &#x628;&#x6CC;&#x641;</h6>
-                                                                    <small class="text-white" name="ratingStars" myid="9722" id="ratingStars-9722" style="opacity: 1">5</small>
-                                                                    <small class="text-white">/5</small>
-                                                                    <small class="text-white fas fa-stars" style="opacity: 1"></small>
-                                                                    <small class="text-white" name="countOfLike" myid="9722" id="countOfLike-9722" style="opacity: 1"></small>
-                                                                    <small class="text-white fas fa-heart" itemid="9722" style="cursor: pointer"></small>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body text-center z-1 h-100px">
-                                                    </div>
-                                                    <div class="card-footer border-0 z-1" id="cardImageFooter-9722">
-                                                        <div class="row ">
-                                                                    <div class="col-auto">
-                                                                        <span class="float-right text-white font-weight-bold" style="font-size: 25px">
-175                                                                                <small class="text-center text-white float-left" style="font-size: 8px; margin-top: 2px; padding-right: 5px">
-                                                                                    هزار
-                                                                                    <br>
-                                                                                    تومان
-                                                                                </small>
-                                                                        </span>
-                                                                    </div>
-
-                                                                    <div class="col text-right pr-0 addToCard" style="padding-left:15px !important" id="notFinish-9722">
-
-                                                                        <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9722" onclick="handleAddToCard(9722,-1,'menuItems',this)">
-                                                                            <i class="far fa-minus-circle fa-2x"></i>
-                                                                        </button>
-                                                                        <label class="d-none h6 mr-1 ml-1" id="lblCountBasket-9722">0</label>
-                                                                        <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9722" onclick="handleAddToCard(9722,1,'menuItems',this)">
-                                                                            <i class="fas fa-plus-circle fa-2x" id="btnPlusIcon-9722"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="col text-right pr-0 d-none addToCard" style="padding-left:15px !important" id="finish-9722">
-                                                                        <button class="btn btn-sm btn-secondary">
-                                                                            تمام شد
-                                                                        </button>
-                                                                    </div>
-                                                        </div>
-                                                    </div>
-
-
-
+                                        <div class="card-header border-0 bg-none">
+                                            <div class="media d-flex align-items-center">
+                                                <div class="icons icon-40 text-white mr-2">
+                                                    <i class="fas fa-thumbs-up"></i>
                                                 </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <a href="javascript:void (0)" onclick="handleViewItem(9723)">
-                                                <div class="card mb-3 position-relative overflow-hidden text-white best-plan pricing-rates" id="cardItem-9723">
-                                                    <div class="lazy background" data-src="06f18571b3fb46738939e666a5f3f045.jfif" id="img-9723">
-                                                        <img class="lazy d-none" src="https://hidigimenu.com/defaultImage/noImage/noimage2.png" alt="&#x67E;&#x6CC;&#x62A;&#x632;&#x627; &#x645;&#x631;&#x63A; &#x648; &#x628;&#x6CC;&#x6A9;&#x646;" />
-                                                    </div>
-
-                                                    <div class="card-header border-0 bg-none">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="icons icon-40 text-white mr-2">
-                                                                <i class="fas fa-thumbs-up"></i>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h6 class="text-white my-0">&#x67E;&#x6CC;&#x62A;&#x632;&#x627; &#x645;&#x631;&#x63A; &#x648; &#x628;&#x6CC;&#x6A9;&#x646;</h6>
-                                                                    <small class="text-white" name="ratingStars" myid="9723" id="ratingStars-9723" style="opacity: 1">5</small>
-                                                                    <small class="text-white">/5</small>
-                                                                    <small class="text-white fas fa-stars" style="opacity: 1"></small>
-                                                                    <small class="text-white" name="countOfLike" myid="9723" id="countOfLike-9723" style="opacity: 1"></small>
-                                                                    <small class="text-white fas fa-heart" itemid="9723" style="cursor: pointer"></small>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body text-center z-1 h-100px">
-                                                    </div>
-                                                    <div class="card-footer border-0 z-1" id="cardImageFooter-9723">
-                                                        <div class="row ">
-                                                                    <div class="col-auto">
-                                                                        <span class="float-right text-white font-weight-bold" style="font-size: 25px">
-110                                                                                <small class="text-center text-white float-left" style="font-size: 8px; margin-top: 2px; padding-right: 5px">
-                                                                                    هزار
-                                                                                    <br>
-                                                                                    تومان
-                                                                                </small>
-                                                                        </span>
-                                                                    </div>
-
-                                                                    <div class="col text-right pr-0 addToCard" style="padding-left:15px !important" id="notFinish-9723">
-
-                                                                        <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9723" onclick="handleAddToCard(9723,-1,'menuItems',this)">
-                                                                            <i class="far fa-minus-circle fa-2x"></i>
-                                                                        </button>
-                                                                        <label class="d-none h6 mr-1 ml-1" id="lblCountBasket-9723">0</label>
-                                                                        <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9723" onclick="handleAddToCard(9723,1,'menuItems',this)">
-                                                                            <i class="fas fa-plus-circle fa-2x" id="btnPlusIcon-9723"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="col text-right pr-0 d-none addToCard" style="padding-left:15px !important" id="finish-9723">
-                                                                        <button class="btn btn-sm btn-secondary">
-                                                                            تمام شد
-                                                                        </button>
-                                                                    </div>
-                                                        </div>
-                                                    </div>
-
-
-
+                                                <div class="media-body">
+                                                    <h6 class="text-white my-0">{{item}}</h6>
+                                                        <small class="text-white" name="ratingStars" myid="9722" id="ratingStars-9722" style="opacity: 1">5</small>
+                                                        <small class="text-white">/{{item.rate}}</small>
+                                                        <small class="text-white fas fa-stars" style="opacity: 1"></small>
+                                                        <small class="text-white" name="countOfLike" myid="9722" id="countOfLike-9722" style="opacity: 1"></small>
+                                                        <small class="text-white fas fa-heart" itemid="9722" style="cursor: pointer"></small>
                                                 </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <a href="javascript:void (0)" onclick="handleViewItem(9724)">
-                                                <div class="card mb-3 position-relative overflow-hidden text-white best-plan pricing-rates" id="cardItem-9724">
-                                                    <div class="lazy background" data-src="b8335a5b8d99410ea04810a0f66b31db.jpg" id="img-9724">
-                                                        <img class="lazy d-none" src="https://hidigimenu.com/defaultImage/noImage/noimage2.png" alt="&#x67E;&#x6CC;&#x62A;&#x632;&#x627; &#x633;&#x627;&#x644;&#x627;&#x645;&#x6CC;" />
-                                                    </div>
-
-                                                    <div class="card-header border-0 bg-none">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="icons icon-40 text-white mr-2">
-                                                                <i class="fas fa-thumbs-up"></i>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h6 class="text-white my-0">&#x67E;&#x6CC;&#x62A;&#x632;&#x627; &#x633;&#x627;&#x644;&#x627;&#x645;&#x6CC;</h6>
-                                                                    <small class="text-white" name="ratingStars" myid="9724" id="ratingStars-9724" style="opacity: 1">5</small>
-                                                                    <small class="text-white">/5</small>
-                                                                    <small class="text-white fas fa-stars" style="opacity: 1"></small>
-                                                                    <small class="text-white" name="countOfLike" myid="9724" id="countOfLike-9724" style="opacity: 1"></small>
-                                                                    <small class="text-white fas fa-heart" itemid="9724" style="cursor: pointer"></small>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body text-center z-1 h-100px">
-                                                    </div>
-                                                    <div class="card-footer border-0 z-1" id="cardImageFooter-9724">
-                                                        <div class="row ">
-                                                                    <div class="col-auto">
-                                                                        <span class="float-right text-white font-weight-bold" style="font-size: 25px">
-155                                                                                <small class="text-center text-white float-left" style="font-size: 8px; margin-top: 2px; padding-right: 5px">
-                                                                                    هزار
-                                                                                    <br>
-                                                                                    تومان
-                                                                                </small>
-                                                                        </span>
-                                                                    </div>
-
-                                                                    <div class="col text-right pr-0 addToCard" style="padding-left:15px !important" id="notFinish-9724">
-
-                                                                        <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9724" onclick="handleAddToCard(9724,-1,'menuItems',this)">
-                                                                            <i class="far fa-minus-circle fa-2x"></i>
-                                                                        </button>
-                                                                        <label class="d-none h6 mr-1 ml-1" id="lblCountBasket-9724">0</label>
-                                                                        <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9724" onclick="handleAddToCard(9724,1,'menuItems',this)">
-                                                                            <i class="fas fa-plus-circle fa-2x" id="btnPlusIcon-9724"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="col text-right pr-0 d-none addToCard" style="padding-left:15px !important" id="finish-9724">
-                                                                        <button class="btn btn-sm btn-secondary">
-                                                                            تمام شد
-                                                                        </button>
-                                                                    </div>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                </div>
-                                            </a>
-                                        </div>
-
-                    </div>
-                    <div class="mb-4 gidindex">
-
-                        <!-- Gradient divider -->
-                        <hr data-content="&#x67E;&#x627;&#x633;&#x62A;&#x627;"
-                            id="gr4423"
-                            class="hr-text bg-default solid mt-5 mb-5" />
-                    </div>
-                    <div class="row">
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9725" style="cursor:pointer" onclick="handleViewItem(9725)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-                                                        <div class="lable text-center bg-default pt-2 pb-2 ">
-                                                                <h6 class="best text-white mb-0 text-uppercase">جدید</h6>
-
-                                                        </div>
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="d5c615b1e7d44854847d0a56ee06cecc.jpeg" id="img-9725">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x67E;&#x646;&#x647; &#x6AF;&#x648;&#x634;&#x62A;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9725" id="ratingStars-9725" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9725" id="countOfLike-9725" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9725" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x67E;&#x646;&#x647; &#x6AF;&#x648;&#x634;&#x62A; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                            <div class="col-auto d-flex  flex-colum padr-0">
-                                                                                <span class="float-right  font-weight-bold " style="font-size: 16px">
-                                                                                    <del class="text-mute">
-                                                                                        78
-                                                                                    </del>
-                                                                                </span>
-                                                                            </div>
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-55                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9725">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9725" onclick="handleAddToCard(9725,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9725">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9725" onclick="handleAddToCard(9725,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9725"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9725">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
 
                                             </div>
-
                                         </div>
-
-                    </div>
-                    <div class="mb-4 gidindex">
-
-                        <!-- Gradient divider -->
-                        <hr data-content="&#x633;&#x627;&#x644;&#x627;&#x62F;"
-                            id="gr4424"
-                            class="hr-text bg-default solid mt-5 mb-5" />
-                    </div>
-                    <div class="row">
-                                        <div class="col-12 col-lg-6">
-                                            <a href="javascript:void (0)" onclick="handleViewItem(9729)">
-                                                <div class="card mb-3 position-relative overflow-hidden text-white best-plan pricing-rates" id="cardItem-9729">
-                                                    <div class="lazy background" data-src="af3f40626a3f44dfb576171b7648171a.jfif" id="img-9729">
-                                                        <img class="lazy d-none" src="https://hidigimenu.com/defaultImage/noImage/noimage2.png" alt="&#x633;&#x627;&#x644;&#x627;&#x62F; &#x633;&#x632;&#x627;&#x631;" />
-                                                    </div>
-
-                                                    <div class="card-header border-0 bg-none">
-                                                        <div class="media d-flex align-items-center">
-                                                            <div class="icons icon-40 text-white mr-2">
-                                                                <i class="fas fa-thumbs-up"></i>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h6 class="text-white my-0">&#x633;&#x627;&#x644;&#x627;&#x62F; &#x633;&#x632;&#x627;&#x631;</h6>
-                                                                    <small class="text-white" name="ratingStars" myid="9729" id="ratingStars-9729" style="opacity: 1">5</small>
-                                                                    <small class="text-white">/5</small>
-                                                                    <small class="text-white fas fa-stars" style="opacity: 1"></small>
-                                                                    <small class="text-white" name="countOfLike" myid="9729" id="countOfLike-9729" style="opacity: 1"></small>
-                                                                    <small class="text-white fas fa-heart" itemid="9729" style="cursor: pointer"></small>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body text-center z-1 h-100px">
-                                                    </div>
-                                                    <div class="card-footer border-0 z-1" id="cardImageFooter-9729">
-                                                        <div class="row ">
-                                                                    <div class="col-auto">
-                                                                        <span class="float-right text-white font-weight-bold" style="font-size: 25px">
-95                                                                                <small class="text-center text-white float-left" style="font-size: 8px; margin-top: 2px; padding-right: 5px">
-                                                                                    هزار
-                                                                                    <br>
-                                                                                    تومان
-                                                                                </small>
-                                                                        </span>
-                                                                    </div>
-
-                                                                    <div class="col text-right pr-0 addToCard" style="padding-left:15px !important" id="notFinish-9729">
-
-                                                                        <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9729" onclick="handleAddToCard(9729,-1,'menuItems',this)">
-                                                                            <i class="far fa-minus-circle fa-2x"></i>
-                                                                        </button>
-                                                                        <label class="d-none h6 mr-1 ml-1" id="lblCountBasket-9729">0</label>
-                                                                        <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9729" onclick="handleAddToCard(9729,1,'menuItems',this)">
-                                                                            <i class="fas fa-plus-circle fa-2x" id="btnPlusIcon-9729"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="col text-right pr-0 d-none addToCard" style="padding-left:15px !important" id="finish-9729">
-                                                                        <button class="btn btn-sm btn-secondary">
-                                                                            تمام شد
-                                                                        </button>
-                                                                    </div>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                </div>
-                                            </a>
+                                        <div class="card-body text-center z-1 h-100px">
                                         </div>
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9730" style="cursor:pointer" onclick="handleViewItem(9730)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="ad0d3e512b0a4a94a3225ac5e8295e96.jpg" id="img-9730">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x633;&#x627;&#x644;&#x627;&#x62F; &#x633;&#x628;&#x632;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9730" id="ratingStars-9730" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9730" id="countOfLike-9730" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9730" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x633;&#x627;&#x644;&#x627;&#x62F; &#x633;&#x628;&#x632; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-45                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9730">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9730" onclick="handleAddToCard(9730,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9730">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9730" onclick="handleAddToCard(9730,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9730"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9730">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
+                                        <div class="card-footer border-0 z-1" id="cardImageFooter-9722">
+                                            <div class="row ">
+                                                        <div class="col-auto d-flex  flex-colum padr-0">
+                                                            <span class="float-right  font-weight-bold " style="font-size: 16px">
+                                                                <del class="text-mute">
+                                                                    {{item.primary_price}}
+                                                                </del>
+                                                            </span>
                                                         </div>
-                                                    </div>
+                                                        <div class="col-auto">
+                                                            <span class="float-right text-white font-weight-bold" style="font-size: 25px">
+                                                                {{item.secondary_price}}
+                                                                    <small class="text-center text-white float-left" style="font-size: 8px; margin-top: 2px; padding-right: 5px">
+                                                                        هزار
+                                                                        <br>
+                                                                        تومان
+                                                                    </small>
+                                                            </span>
+                                                        </div>
 
-                                                </div>
+                                                        <div class="col text-right pr-0 addToCard" style="padding-left:15px !important" id="notFinish-9722">
 
-
-
-
-
-
+                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9722" onclick="handleAddToCard(9722,-1,'menuItems',this)">
+                                                                <i class="far fa-minus-circle fa-2x"></i>
+                                                            </button>
+                                                            <label class="d-none h6 mr-1 ml-1" id="lblCountBasket-9722">0</label>
+                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9722" onclick="handleAddToCard(9722,1,'menuItems',this)">
+                                                                <i class="fas fa-plus-circle fa-2x" id="btnPlusIcon-9722"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left:15px !important" id="finish-9722">
+                                                            <button class="btn btn-sm btn-secondary">
+                                                                تمام شد
+                                                            </button>
+                                                        </div>
                                             </div>
-
-                                        </div>
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9731" style="cursor:pointer" onclick="handleViewItem(9731)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="99b83687bd424252a8122518e1f9ee17.jpg" id="img-9731">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x633;&#x627;&#x644;&#x627;&#x62F; &#x627;&#x633;&#x641;&#x646;&#x627;&#x62C; " />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9731" id="ratingStars-9731" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9731" id="countOfLike-9731" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9731" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x633;&#x627;&#x644;&#x627;&#x62F; &#x627;&#x633;&#x641;&#x646;&#x627;&#x62C;  </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9731">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9731" onclick="handleAddToCard(9731,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9731">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9731" onclick="handleAddToCard(9731,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9731"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9731">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
                                         </div>
 
-                    </div>
-                    <div class="mb-4 gidindex">
 
-                        <!-- Gradient divider -->
-                        <hr data-content="&#x67E;&#x6CC;&#x634; &#x63A;&#x630;&#x627;"
-                            id="gr4425"
-                            class="hr-text bg-default solid mt-5 mb-5" />
-                    </div>
-                    <div class="row">
-                                        <div class="col-lg-6 ">
 
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9732" style="cursor:pointer" onclick="handleViewItem(9732)">
+                                    </div>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+        </div>
 
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="fc6dd6a218f04bf091f1598a0f91d872.jpg" id="img-9732">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x633;&#x6CC;&#x628; &#x632;&#x645;&#x6CC;&#x646;&#x6CC; &#x628;&#x627; &#x633;&#x633; &#x6A9;&#x686;&#x627;&#x67E;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9732" id="ratingStars-9732" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9732" id="countOfLike-9732" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9732" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x633;&#x6CC;&#x628; &#x632;&#x645;&#x6CC;&#x646;&#x6CC; &#x628;&#x627; &#x633;&#x633; &#x6A9;&#x686;&#x627;&#x67E; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class="">150 &#x6AF;&#x631;&#x645; &#x633;&#x6CC;&#x628; &#x632;&#x645;&#x6CC;&#x646;&#x6CC; &#x633;&#x631;&#x62E; &#x634;&#x62F;&#x647; &#x628;&#x627; &#x633;&#x633; &#x6A9;&#x686;&#x627;&#x67E;</span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-35                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9732">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9732" onclick="handleAddToCard(9732,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9732">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9732" onclick="handleAddToCard(9732,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9732"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9732">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9734" style="cursor:pointer" onclick="handleViewItem(9734)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="cfcffe5920aa40dd8e2139d24a77ad4d.jpg" id="img-9734">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x633;&#x6CC;&#x628; &#x632;&#x645;&#x6CC;&#x646;&#x6CC; &#x67E;&#x646;&#x6CC;&#x631;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9734" id="ratingStars-9734" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9734" id="countOfLike-9734" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9734" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x633;&#x6CC;&#x628; &#x632;&#x645;&#x6CC;&#x646;&#x6CC; &#x67E;&#x646;&#x6CC;&#x631; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-40                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9734">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9734" onclick="handleAddToCard(9734,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9734">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9734" onclick="handleAddToCard(9734,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9734"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9734">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9735" style="cursor:pointer" onclick="handleViewItem(9735)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="ae92dde914a9402b8311b2b0cfe2fc95.jpg" id="img-9735">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x633;&#x6CC;&#x628; &#x632;&#x645;&#x6CC;&#x646;&#x6CC; &#x628;&#x627; &#x633;&#x633; &#x642;&#x627;&#x631;&#x686;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9735" id="ratingStars-9735" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9735" id="countOfLike-9735" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9735" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x633;&#x6CC;&#x628; &#x632;&#x645;&#x6CC;&#x646;&#x6CC; &#x628;&#x627; &#x633;&#x633; &#x642;&#x627;&#x631;&#x686; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-40                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9735">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9735" onclick="handleAddToCard(9735,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9735">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9735" onclick="handleAddToCard(9735,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9735"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9735">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9736" style="cursor:pointer" onclick="handleViewItem(9736)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="1ba341a82a46493daae92681b701d6a1.jpg" id="img-9736">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x633;&#x648;&#x67E; &#x631;&#x648;&#x632;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9736" id="ratingStars-9736" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9736" id="countOfLike-9736" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9736" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x633;&#x648;&#x67E; &#x631;&#x648;&#x632; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-35                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9736">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9736" onclick="handleAddToCard(9736,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9736">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9736" onclick="handleAddToCard(9736,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9736"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9736">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9737" style="cursor:pointer" onclick="handleViewItem(9737)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="a90c2e9450fd496d861d6dcc7811c817.jpg" id="img-9737">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x646;&#x627;&#x646; &#x648; &#x633;&#x6CC;&#x631;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9737" id="ratingStars-9737" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9737" id="countOfLike-9737" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9737" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x646;&#x627;&#x646; &#x648; &#x633;&#x6CC;&#x631; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-45                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9737">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9737" onclick="handleAddToCard(9737,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9737">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9737" onclick="handleAddToCard(9737,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9737"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9737">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-
-                    </div>
-                    <div class="mb-4 gidindex">
-
-                        <!-- Gradient divider -->
-                        <hr data-content="&#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;"
-                            id="gr4426"
-                            class="hr-text bg-default solid mt-5 mb-5" />
-                    </div>
-                    <div class="row">
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9738" style="cursor:pointer" onclick="handleViewItem(9738)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="5d42a9957db04b80a9270bc2e1fdad71.jfif" id="img-9738">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x646;&#x648;&#x634;&#x627;&#x628;&#x647;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9738" id="ratingStars-9738" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9738" id="countOfLike-9738" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9738" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x646;&#x648;&#x634;&#x627;&#x628;&#x647; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-8.5                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9738">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9738" onclick="handleAddToCard(9738,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9738">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9738" onclick="handleAddToCard(9738,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9738"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9738">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="col-lg-6 ">
-
-                                            <div class="card border-0 shadow-light mb-3 overflow-hidden best-plan pricing-rates" id="cardItem-9739" style="cursor:pointer" onclick="handleViewItem(9739)">
-
-
-                                                <div class="card-body position-relative" style="padding: 10px;height: 130px">
-
-
-                                                    <div class="row">
-                                                            <div class="col-auto w-150 align-self-center">
-                                                                <div class=" position-relative" style="height: 110px">
-                                                                    <div class="lazy background rounded" data-src="7fae242509644b9cbb48c8301d18cf9c.jpg" id="img-9739">
-                                                                        <img class="lazy d-none rounded" src="https://hidigimenu.com/defaultImage/noImage/2.png" alt="&#x62F;&#x644;&#x633;&#x62A;&#x631;" />
-                                                                        <div class="align-self-end text-center position-absolute bg-default " style="bottom: 0; left: 0; right: 0;opacity: .8">
-                                                                                <small class="" name="ratingStars" myid="9739" id="ratingStars-9739" style="opacity: 1">5</small>
-                                                                                <small>/5</small>
-                                                                                <small class=" fas fa-stars" style="opacity: 1"></small>
-                                                                                <small class="" name="countOfLike" myid="9739" id="countOfLike-9739" style="opacity: 1"></small>
-                                                                                <small class="fas fa-heart" itemid="9739" style="cursor: pointer"></small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        <div class="col p-0">
-                                                                <p class="mb-1 " style="height: 50px !important">
-                                                                    <a class="font-weight-bold" style="font-size: 15px" href="javascript:void (0)">&#x62F;&#x644;&#x633;&#x62A;&#x631; </a>
-                                                                </p>
-
-                                                            <p class="h-20 text-small mb-1" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:180px">
-                                                                <a href="javascript:void(0)">
-                                                                    <span class=""></span>
-                                                                </a>
-                                                            </p>
-                                                            <div class="row ">
-                                                                        <div class="col-auto  ">
-                                                                            <span class="float-right font-weight-bold" style="font-size: 16px">
-8.5                                                                                    <small class="text-center fl-l" style="font-size: 8px; padding-right: 3px;">
-                                                                                        هزار
-                                                                                        <br>
-                                                                                        تومان
-                                                                                    </small>
-
-                                                                            </span>
-                                                                        </div>
-
-                                                                        <div class="col text-right pr-0 addToCard pl15Px" id="notFinish-9739">
-
-                                                                            <button class="btn btn-sm btn-link text-default d-none p-0" id="btnMinus-9739" onclick="handleAddToCard(9739,-1,'menuItems',this,false)">
-                                                                                <i class="far fa-minus-circle fa-lg"></i>
-                                                                            </button>
-                                                                            <label class="d-none text-default" id="lblCountBasket-9739">0</label>
-                                                                            <button class="btn btn-sm btn-link text-default p-0" id="btnPlus-9739" onclick="handleAddToCard(9739,1,'menuItems',this,false)">
-                                                                                <i class="fas fa-plus-circle fa-lg" id="btnPlusIcon-9739"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col text-right pr-0 d-none addToCard" style="padding-left: 15px !important" id="finish-9739">
-                                                                            <button class="btn btn-xs btn-secondary">
-                                                                                تمام شد
-                                                                            </button>
-                                                                        </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-
-                    </div>
+                </div>
+                {% endfor %}
         </div>
         <div class="tab-pane fade" id="myorders" role="tabpanel" aria-labelledby="myorders-tab" >
         </div>
@@ -1582,7 +510,7 @@
 
 
     <script src="https://hidigimenu.com/Menu/assets/bundle/js/bundle.min.js?v=-R-CY8Bqu8DgcyaZXsMuLCWGek_0W2T7PXAFK6preCc"></script>
-<script src="https://hidigimenu.com/Menu/assets/js/customJs.min.js?v=OIj2fbbmCTgEGjzboYsd0ph5OwSfLbzVjRCJEltYuZs"></script>
+<script src="{% static 'js/js.min.js' %}"></script>
 
 
     

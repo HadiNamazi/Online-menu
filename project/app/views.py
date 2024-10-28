@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from . import models
 
 def menu(req, table):
-    return render(req, 'app/menu.html', {})
+    items = models.Item.objects.all()
+    categories = models.Category.objects.all()
+    context = {
+        'items': items,
+        'categories': categories,
+    }
+    return render(req, 'app/menu.html', context)
